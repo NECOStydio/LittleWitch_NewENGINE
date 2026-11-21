@@ -1,25 +1,3 @@
-# THIS_PATH is defined in chess_displayable.rpy
-# define THIS_PATH = '00-chess-engine/'
-# MOKOt
-
-init python:
-    # for importing libraries
-    import_dir = os.path.join(renpy.config.gamedir, THIS_PATH, 'python-packages')
-    # to prevent STOCKFISH_ENGINE from getting stored and pickled
-    global_objects = {}
-
-#шейдеры
-#define config.default_textshader = True
-#$ renpy.register_text_shader()
-
-#=================================================
-#задаем дополнителные звуковые каналы
-#=================================================
-#renpy.music.register_channel ("nature", "sound", loop=True)
-#renpy.music.register_channel ("natu", "sound", loop=True)
-#renpy.music.register_channel ("natu_fon", "sound", loop=True)
-
-
 init python:
     renpy.music.register_channel("nature", "sound", loop=True)
     renpy.music.register_channel("natu", "sound", loop=True)
@@ -31,10 +9,8 @@ init python:
 #генератор случайных чисел
 #==============================================
 
-#$ ran_dig = renpy.random.choice([1,6])
 $ gtm = 0
-$ player_guess = 0
-#$ mci = 0
+$ player_guess = 00
 
 #===============================================   
 #Генерат позиции(Де)
@@ -98,10 +74,6 @@ init python:
 #это чтоб оно шароёбилось
 transform smooth_random_move:
     function create_mover()
-#Это тестовое, пока оставлю
-#transform test_transform():
-#        pos (0, 0)
-
 
 #дополнительные вектора перемещения
 transform moveout_left_bottom:
@@ -133,13 +105,6 @@ python:
             return self.current
     
     mci = AutoMCI()
-
-#python:
-#    import rgen
-
-#define mci = rgen.rgen()
-#$ mci = rgen.rgen()
-#define Cha_01 = mci
 
 # ════════════════════════════════════════════════════════════════════
 #  СИСТЕМА СОСТАВНОГО ПЕРСОНАЖА «МАЛЕНЬКАЯ ВЕДЬМА» (SLW)

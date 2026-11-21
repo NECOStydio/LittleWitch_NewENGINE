@@ -12,3 +12,4 @@ game/tl/None/common.rpymc
 game/\#init.rpy\#
 *.pyc
 /game/00-chess-engine/python-packages/chess/__pycache__
+*.rpyc
